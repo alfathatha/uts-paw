@@ -1,10 +1,82 @@
 [
   {
     "id": "1",
-    "judul": "Contoh item pertama",
-    "kategori": "Contoh",
-    "fieldTema1": "ganti sesuai field tema",
-    "fieldTema2": 0,
-    "fieldTema3": "ganti sesuai field tema"
+    "judul": "Seminar Informatic Festival",
+    "kategori": "Seminar",
+    "tanggal": "6 Oktober 2026",
+    "lokasi": "Aula GK1",
+    "penyelenggara": "HMIF ITERA"
+  },
+  {
+    "id": "2",
+    "judul": "Aksi Mahasiswa ITERA",
+    "kategori": "Sosial",
+    "tanggal": "28 Oktober 2026",
+    "lokasi": "Tugu Adipura",
+    "penyelenggara": "KM ITERA"
+  },
+  {
+    "id": "3",
+    "judul": "Workshop Bahasa",
+    "kategori": "Workshop",
+    "tanggal": "7 Juni 2026",
+    "lokasi": "Aula Gedung E",
+    "penyelenggara": "UPA Bahasa ITERA"
+  },
+  {
+    "id": "4",
+    "judul": "Kerja Bakti Mahasiswa ITERA",
+    "kategori": "Sosial",
+    "tanggal": "19 Agustus 2026",
+    "lokasi": "Embung A ITERA",
+    "penyelenggara": "KM ITERA"
+  },
+  {
+    "id": "5",
+    "judul": "PERSITERA CUP",
+    "kategori": "Lomba",
+    "tanggal": "26 Oktober 2026",
+    "lokasi": "GOR UIN",
+    "penyelenggara": "UKM PERSITERA"
+  },
+  {
+    "id": "6",
+    "judul": "Lomba ML INFEST",
+    "kategori": "Lomba",
+    "tanggal": "25 Oktober 2026",
+    "lokasi": "GK2 407",
+    "penyelenggara": "HMIF ITERA"
+  },
+  {
+    "id": "7",
+    "judul": "Lomba PUBG INFEST",
+    "kategori": "Lomba",
+    "tanggal": "14 Oktober 2026",
+    "lokasi": "GK2 410",
+    "penyelenggara": "HMIF ITERA"
+  },
+  {
+    "id": "8",
+    "judul": "Seminar Kekerasan Seksual",
+    "kategori": "Seminar",
+    "tanggal": "6 September 2026",
+    "lokasi": "Aula GK2",
+    "penyelenggara": "PPKPT ITERA"
+  },
+  {
+    "id": "9",
+    "judul": "Workshop Pemrograman WEB",
+    "kategori": "Workshop",
+    "tanggal": "8 Juli 2026",
+    "lokasi": "Aula GK2",
+    "penyelenggara": "HMIF ITERA"
+  },
+  {
+    "id": "10",
+    "judul": "LKMM-TD",
+    "kategori": "Pelatihan",
+    "tanggal": "15 September 2026",
+    "lokasi": "Aula GK1",
+    "penyelenggara": "KM ITERA"
   }
 ]
