@@ -1,37 +1,57 @@
 
-import { useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import useKoleksi from '../hooks/useKoleksi.js'
 
 export default function Detail() {
   const { id } = useParams()
-  const { items, hapus } = useKoleksi()
+  const navigate = useNavigate()
+  const { items, loading, hapus } = useKoleksi()
 
-  const item = items.find(
-    (data) => String(data.id) === String(id)
-  )
+  const item = items.find((i) => String(i.id) === id)
+
+  if (loading) return <p>Memuat data...</p>
 
   if (!item) {
     return (
-      <main>
-        <h1>Data tidak ditemukan</h1>
-        <p>Item dengan ID tersebut tidak ditemukan.</p>
-      </main>
+      <section>
+        <h1>Item tidak ditemukan</h1>
+        <Link to="/koleksi">Kembali ke koleksi</Link>
+      </section>
     )
   }
 
-  return (
-    <main>
-      <h1>{item.judul}</h1>
-      <p>Kategori: {item.kategori}</p>
+  const konfirmasiHapus = () => {
+    if (window.confirm(`Hapus "${item.judul}"?`)) {
+      hapus(item.id)
+      navigate('/koleksi')
+    }
+  }
 
-      <button
-        onClick={() => {
-          hapus(item.id)
-          window.location.href = '/koleksi'
-        }}
-      >
-        Hapus
-      </button>
-    </main>
+  return (
+    <section>
+      <h1>{item.judul}</h1>
+
+      <dl>
+        <dt>Kategori</dt>
+        <dd>{item.kategori}</dd>
+
+        <dt>Tanggal</dt>
+        <dd>{item.tanggal}</dd>
+
+        <dt>Lokasi</dt>
+        <dd>{item.lokasi}</dd>
+
+        <dt>Penyelenggara</dt>
+        <dd>{item.penyelenggara}</dd>
+      </dl>
+
+      <div className="aksi">
+        <button type="button" onClick={konfirmasiHapus}>
+          Hapus
+        </button>
+
+        <Link to="/koleksi">Kembali</Link>
+      </div>
+    </section>
   )
 }
