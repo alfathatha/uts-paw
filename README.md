@@ -72,6 +72,10 @@ Tema: Agenda Kegiatan Kampus
 Deployment: https://alfathatha.github.io/uts-paw/
 
 ![Tangkapan layar beranda](docs/beranda.png)
+![Tangkapan layar koleksi](docs/koleksi.png)
+![Tangkapan layar tambah](docs/tambah.png)
+![Tangkapan layar statistik](docs/statistik.png)
+![Tangkapan layar tentang](docs/tentang.png)
 
 ## Fitur
 
@@ -79,7 +83,7 @@ Deployment: https://alfathatha.github.io/uts-paw/
 - Koleksi
 - Tambah
 - Statistik
-- Tentang8
+- Tentang
 
 ## Menjalankan secara lokal
 
