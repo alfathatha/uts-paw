@@ -2,53 +2,97 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useKoleksi from '../hooks/useKoleksi.js'
+import './Tambah.css'
+
+const AWAL = {
+  judul: '',
+  kategori: 'Seminar',
+  tanggal: '',
+  lokasi: '',
+  penyelenggara: '',
+}
 
 export default function Tambah() {
-  const navigate = useNavigate()
   const { tambah } = useKoleksi()
-  const [judul, setJudul] = useState('')
-  const [kategori, setKategori] = useState('')
-  const [error, setError] = useState('')
+  const navigate = useNavigate()
+  const [form, setForm] = useState(AWAL)
+  const [galat, setGalat] = useState('')
 
-  function simpan(e) {
+  const ubah = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const simpan = (e) => {
     e.preventDefault()
 
-    if (!judul.trim()) {
-      setError('Judul wajib diisi.')
+    if (form.judul.trim().length < 3) {
+      setGalat('Judul wajib diisi, minimal 3 karakter.')
       return
     }
 
     tambah({
-      judul: judul.trim(),
-      kategori: kategori.trim(),
+      ...form,
+      judul: form.judul.trim(),
     })
 
     navigate('/koleksi')
   }
 
   return (
-    <main>
-      <h1>Tambah Koleksi</h1>
+    <form className="formulir" onSubmit={simpan} noValidate>
+      <h1>Tambah Kegiatan</h1>
 
-      <form onSubmit={simpan}>
-        <label htmlFor="judul">Judul</label>
-        <input
-          id="judul"
-          value={judul}
-          onChange={(e) => setJudul(e.target.value)}
-        />
+      <label htmlFor="judul">Judul</label>
+      <input
+        id="judul"
+        name="judul"
+        value={form.judul}
+        onChange={ubah}
+      />
 
-        <label htmlFor="kategori">Kategori</label>
-        <input
-          id="kategori"
-          value={kategori}
-          onChange={(e) => setKategori(e.target.value)}
-        />
+      {galat && <p role="alert">{galat}</p>}
 
-        {error && <p role="alert">{error}</p>}
+      <label htmlFor="kategori">Kategori</label>
+      <select
+        id="kategori"
+        name="kategori"
+        value={form.kategori}
+        onChange={ubah}
+      >
+        <option>Seminar</option>
+        <option>Organisasi</option>
+        <option>Workshop</option>
+        <option>Kegiatan Sosial</option>
+      </select>
 
-        <button type="submit">Simpan</button>
-      </form>
-    </main>
+      <label htmlFor="tanggal">Tanggal</label>
+      <input
+        id="tanggal"
+        name="tanggal"
+        type="text"
+        value={form.tanggal}
+        onChange={ubah}
+      />
+
+      <label htmlFor="lokasi">Lokasi</label>
+      <input
+        id="lokasi"
+        name="lokasi"
+        type="text"
+        value={form.lokasi}
+        onChange={ubah}
+      />
+
+      <label htmlFor="penyelenggara">Penyelenggara</label>
+      <input
+        id="penyelenggara"
+        name="penyelenggara"
+        type="text"
+        value={form.penyelenggara}
+        onChange={ubah}
+      />
+
+      <button type="submit">Simpan</button>
+    </form>
   )
 }
